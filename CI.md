@@ -19,10 +19,13 @@ that both landing pages return real HTML. It does not test client-side rendering
 or decrypt the exam index. No Node toolchain, bundler, or placeholder test suite
 is added to this static site.
 
-Shared actions and presets use immutable `v3.0.0` references. Renovate is the sole
-ongoing dependency merge owner; direct automerge remains disabled, including all
-matching package rules, until the hosted canary proves the rollout. The custom
-Actions merger and its comment commands are retired.
+Shared actions and presets use immutable `v3.0.1` references. Renovate is the sole
+ongoing dependency merge owner after the protected native canary
+[automation#39](https://github.com/edbfi/automation/pull/39). Native PR rebase merges
+preserve signed commits and require complete current-head CI and policy checks,
+current branches, applicable release ages, reviews and hold labels. Shared
+automation configuration updates remain manual. The custom Actions merger and
+its comment commands are retired.
 
 The separate PR policy workflow checks Conventional Commit titles, genuine
 matching author sign-offs, Renovate provenance, holds, review requests and
