@@ -12,25 +12,35 @@ Local quality checks remain:
 SKIP=no-commit-to-branch prek run --all-files --hook-stage manual
 ```
 
-CI pins prek 0.5.2. Hooks may fix local files; CI treats any required fixer changes
+CI pins prek 0.5.3. Hooks may fix local files; CI treats any required fixer changes
 as a failure. Vendored Ministry exam material keeps its existing hook exclusions
 and remains unmodified. The smoke check serves `docs/` on localhost and asserts
 that both landing pages return real HTML. It does not test client-side rendering
 or decrypt the exam index. No Node toolchain, bundler, or placeholder test suite
 is added to this static site.
 
-Renovate uses the v1.1.0 default and automerge presets. All update types, including
-majors and shared-policy versions, are eligible without dashboard approval after
-all four current-head checks in `.github/merge-policy.json` pass. Genuine author
-sign-offs are preserved, and full CI is dispatched for the exact merged commit.
-Other changes retain review of the exact head/base, full diff, authors/DCO,
-every expected job and relevant artifacts before ghmerge. No branch protections
-or repository rulesets are configured. Actions use full version tags.
+Shared actions and presets use immutable `v3.0.0` references. Renovate is the sole
+ongoing dependency merge owner; direct automerge remains disabled, including all
+matching package rules, until the hosted canary proves the rollout. The custom
+Actions merger and its comment commands are retired.
+
+The separate PR policy workflow checks Conventional Commit titles, genuine
+matching author sign-offs, Renovate provenance, holds, review requests and
+unresolved changes requests. Require its actual emitted policy context alongside
+the four application checks, from GitHub Actions, with strict up-to-date branch
+protection. Preserve stronger native review requirements. An explicit `ci.yml`
+dispatch does not substitute for a missing PR policy check. Review exact head/base,
+full diffs, DCO, all required CI and artifacts before a bootstrap merge; verify
+resulting default-branch CI afterwards.
+
+The shared smoke action now owns startup, readiness, deadlines and process
+cleanup. `.github/scripts/smoke.sh` retains the two first-party HTML assertions.
+The smoke workflow remains callable and independently dispatchable. This remains
+HTTP/content coverage; it does not execute client-side JavaScript.
 
 Pages continues to publish the static `main:/docs` tree at `eksamen.edb.fi`.
 Current Renovate extraction manages only workflow, hook and shared-preset versions,
-all outside `docs/`; those updates do not change the served tree and need no
-redeployment. Therefore checked merging has no deployment follow-up here. Ordinary
-maintainer content pushes retain native Pages publication. If served dependencies
-or a build are introduced, include their publication in the checked-merge policy
-at that time. No Node toolchain or Biome installation is introduced.
+all outside `docs/`; those updates do not change the served tree. Normal maintainer
+and Renovate App merges retain native Pages publication. If served dependencies
+or a build are introduced, require their runtime checks and inspect publication
+before continuing the merge queue. No Node toolchain or Biome is introduced.

@@ -1,0 +1,4 @@
+# This exact hosted runner label is exercised by the repository's required CI.
+self-hosted-runner:
+  labels:
+    - ubuntu-26.04
