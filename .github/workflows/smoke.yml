@@ -29,37 +29,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Serve docs and smoke-test pages
-        run: |
-          set -euo pipefail
-
-          # Bound to 127.0.0.1 explicitly so the probes below, which dial the
-          # IPv4 literal, cannot miss the listener.
-          python3 -m http.server 4321 --bind 127.0.0.1 --directory docs &
-          server=$!
-          trap 'kill "${server}" 2>/dev/null || true' EXIT
-
-          # Readiness loop, deliberately NOT `curl --retry`: this distinguishes
-          # "not up yet" from "up but broken", so a real error fails fast instead
-          # of being retried into a timeout. http.server does not serve a
-          # directory index redirect for `/`, so probe the file directly.
-          timeout 60 bash -c 'until curl -fsS -o /dev/null http://127.0.0.1:4321/index.html; do sleep 1; done'
-
-          # Assert on CONTENT, not just status — a 200 error page would sail
-          # through a status-only check.
-          #
-          # The body goes to a file rather than into `curl ... | grep -q`:
-          # grep -q exits at the first match, curl then dies of SIGPIPE with
-          # exit 23, and `pipefail` turns that into a failure. Whether it trips
-          # depends on response size and timing, so the piped form is
-          # intermittently red rather than reliably broken.
-          #
-          # docs/proever/ is the Ministry's exam archive under its own separate
-          # licence and is intentionally not probed here.
-          for path in /index.html /optagelsesprover.html; do
-            echo "==> ${path}"
-            curl -fsS -m 10 -o "${RUNNER_TEMP}/page.html" "http://127.0.0.1:4321${path}"
-            grep -qi '<html' "${RUNNER_TEMP}/page.html" \
-              || { echo "SMOKE FAILED: ${path} served no <html>"; exit 1; }
-          done
+        uses: edbfi/automation/actions/smoke@v3.0.0
+        with:
+          start-command: python3 -m http.server 4321 --bind 127.0.0.1 --directory docs
+          url: http://127.0.0.1:4321/index.html
+          test-command: bash .github/scripts/smoke.sh
+          timeout-seconds: '60'
+          test-timeout-seconds: '30'
