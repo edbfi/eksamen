@@ -19,22 +19,23 @@ that both landing pages return real HTML. It does not test client-side rendering
 or decrypt the exam index. No Node toolchain, bundler, or placeholder test suite
 is added to this static site.
 
-Shared actions and presets use immutable `v3.0.1` references. Renovate is the sole
-ongoing dependency merge owner after the protected native canary
-[automation#39](https://github.com/edbfi/automation/pull/39). Native PR rebase merges
-preserve signed commits and require complete current-head CI and policy checks,
-current branches, applicable release ages, reviews and hold labels. Shared
-automation configuration updates remain manual. The custom Actions merger and
-its comment commands are retired.
+Shared actions and presets use immutable `v4.0.0` references. Renovate is the sole
+dependency merger: the shared `automerge.json` preset arms GitHub auto-merge with
+rebase merges, which preserve signed commits, and GitHub merges only once every
+required check passes on the current head. Current branches, applicable release
+ages, reviews and hold labels remain required. Shared automation configuration
+updates remain manual. The custom Actions merger and its comment commands are
+retired.
 
 The separate PR policy workflow checks Conventional Commit titles, genuine
 matching author sign-offs, Renovate provenance, holds, review requests and
-unresolved changes requests. Require its actual emitted policy context alongside
-the four application checks, from GitHub Actions, with strict up-to-date branch
-protection. Preserve stronger native review requirements. An explicit `ci.yml`
-dispatch does not substitute for a missing PR policy check. Review exact head/base,
-full diffs, DCO, all required CI and artifacts before a bootstrap merge; verify
-resulting default-branch CI afterwards.
+unresolved changes requests. After a pass, it re-runs the other event's older
+failed verdict for the same head, which needs `actions: write`. Require its actual
+emitted policy context alongside the application checks, from GitHub Actions,
+with strict up-to-date branch protection. Preserve stronger native review
+requirements. An explicit `ci.yml` dispatch does not substitute for a missing PR
+policy check. Review exact head/base, full diffs, DCO, all required CI and
+artifacts before a bootstrap merge; verify resulting default-branch CI afterwards.
 
 The shared smoke action now owns startup, readiness, deadlines and process
 cleanup. `.github/scripts/smoke.sh` retains the two first-party HTML assertions.
