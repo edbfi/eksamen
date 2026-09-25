@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
 
       - name: Serve docs and smoke-test pages
-        uses: edbfi/automation/actions/smoke@v3.1.0
+        uses: edbfi/automation/actions/smoke@v4.0.0
         with:
           start-command: python3 -m http.server 4321 --bind 127.0.0.1 --directory docs
           url: http://127.0.0.1:4321/index.html
