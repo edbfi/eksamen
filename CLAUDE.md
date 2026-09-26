@@ -13,7 +13,7 @@ python3 -m http.server 4321 --bind 127.0.0.1 --directory docs
 # Smoke check (what CI runs), against the server above
 bash .github/scripts/smoke.sh
 
-# Full quality gate, same as .github/workflows/code-quality.yml (fixers may rewrite files)
+# Full quality gate, local hooks (fixers may rewrite files)
 SKIP=no-commit-to-branch prek run --all-files --hook-stage manual
 
 # One hook
@@ -78,7 +78,6 @@ The list exists only as ciphertext in `docs/proever/optagelsesprover.enc.json`: 
 - Design tokens (`--accent`, `--ink`, `--sp-*`, `--font-*`, `--max-w`) are declared only in `docs/css/shared.css`, which `landing.css` imports. Add new tokens there; don't redeclare colours or spacing.
 - The first-party JS builds DOM with `createElement`/`textContent`; there's no `innerHTML` in it.
 - The root `favicon.svg` isn't served; the live copy is `docs/favicon.svg`.
-- `.github/workflows/pullfrog.yml` is generated: edit it only where it says so.
 
 ## Reference
 
