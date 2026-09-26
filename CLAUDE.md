@@ -74,7 +74,7 @@ The list exists only as ciphertext in `docs/proever/optagelsesprover.enc.json`: 
 - First-party pages assume a deploy at the domain root: `/css/shared.css`, `/favicon.svg`, and the `href="/"` back-links are root-absolute. If you serve the repo root or a subpath, every exam page loses its styling and links. Always serve with `--directory docs`.
 - `check-added-large-files --maxkb=500` only checks newly added files, so it trips on most exam imports (91 tracked files already exceed 500 KB). Skip that hook for the import commit (`SKIP=check-added-large-files`) or raise `--maxkb` in `prek.toml` on purpose. Don't shrink Ministry files to make them fit.
 - `no-commit-to-branch` blocks local commits on `main`. Work on a branch and open a PR.
-- PR policy (`.github/workflows/pr-policy.yml`) requires a Conventional Commit title and a `Signed-off-by` that matches the author, so commit with `git commit -s`.
+- Project conventions require a Conventional Commit title and a `Signed-off-by` that matches the author, so commit with `git commit -s`.
 - Design tokens (`--accent`, `--ink`, `--sp-*`, `--font-*`, `--max-w`) are declared only in `docs/css/shared.css`, which `landing.css` imports. Add new tokens there; don't redeclare colours or spacing.
 - The first-party JS builds DOM with `createElement`/`textContent`; there's no `innerHTML` in it.
 - The root `favicon.svg` isn't served; the live copy is `docs/favicon.svg`.
@@ -82,5 +82,4 @@ The list exists only as ciphertext in `docs/proever/optagelsesprover.enc.json`: 
 
 ## Reference
 
-- `CI.md` explains how `ci.yml`, the reusable quality and smoke workflows, Renovate, and branch protection fit together. Read it before changing anything in `.github/` or `renovate.json`.
 - `README.md` states the naming intent for exam folders. Parts of it are out of date: there is no `FP9_engelsk/` folder, matematik lives at `2025-12-01_Matematik/med-hjaelpemidler/` rather than `_Med_Hjaelpemidler`, and link pages use root-absolute paths for shared assets. Where it disagrees with the tree, follow the tree.
