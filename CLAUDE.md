@@ -10,9 +10,6 @@ Zero-build static site. `docs/` is the GitHub Pages root, served at the domain r
 # Serve locally. --directory docs is required: pages use root-absolute paths.
 python3 -m http.server 4321 --bind 127.0.0.1 --directory docs
 
-# Smoke check (what CI runs), against the server above
-bash .github/scripts/smoke.sh
-
 # Full quality gate, local hooks (fixers may rewrite files)
 SKIP=no-commit-to-branch prek run --all-files --hook-stage manual
 
@@ -20,7 +17,7 @@ SKIP=no-commit-to-branch prek run --all-files --hook-stage manual
 prek run check-json --all-files
 ```
 
-There are no unit tests. The smoke check only asserts that `/index.html` and `/optagelsesprover.html` return HTML; it runs no JavaScript, so verify rendering changes in a browser. Hooks aren't installed by default (`prek install`).
+There are no unit tests or smoke checks, so verify rendering changes in a browser. Hooks aren't installed by default (`prek install`).
 
 ## Ownership
 
