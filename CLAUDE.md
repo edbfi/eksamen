@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Zero-build static site. `docs/` is the GitHub Pages root, served at the domain root (`docs/CNAME`). There is no `package.json`, bundler, or test suite: first-party code is plain ES modules and CSS loaded directly by the browser. Don't add a Node toolchain or formatter; `CI.md` and the workflow headers record that decision.
+Zero-build static site. `docs/` is the GitHub Pages root, served at the domain root (`docs/CNAME`). There is no `package.json`, bundler, or test suite: first-party code is plain ES modules and CSS loaded directly by the browser. Don't add a Node toolchain or formatter.
 
 ## Commands
 
