@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/favicon.svg" alt="eksamen logo" width="256" height="256">
+  <img src="docs/favicon.svg" alt="eksamen logo" width="160" height="160">
 </p>
 
 <h1 align="center">eksamen</h1>
@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/edbfi/eksamen/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-AGPL--3.0%20(website%20code)-blue?style=flat" alt="License: AGPL-3.0 (website code)">
+    <img src="https://img.shields.io/badge/License-AGPL--3.0--or--later%20(website%20code)-blue?style=flat" alt="License: AGPL-3.0-or-later (website code)">
   </a>
   <a href="https://github.com/tc39/ecma262" title="ECMAScript language specification source">
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&amp;logo=javascript&amp;logoColor=black" alt="JavaScript">
@@ -100,6 +100,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-- Website code is licensed under [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.html)
+- Original website code and infrastructure outside `/docs/proever` are free software: you may redistribute and/or modify them under the [GNU Affero General Public License](LICENSE), as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version (`AGPL-3.0-or-later`). Third-party materials retain their respective licenses.
 
 - Exam content © Børne- og Undervisningsministeriet
