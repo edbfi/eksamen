@@ -1,4 +1,25 @@
-# Eksamensarkiv 📚
+<p align="center">
+  <img src="docs/favicon.svg" alt="eksamen logo" width="256" height="256">
+</p>
+
+<h1 align="center">eksamen</h1>
+
+<p align="center"><strong>Browse Danish school examinations in a static web archive.</strong></p>
+
+<p align="center">
+  <a href="https://github.com/edbfi/eksamen/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-AGPL--3.0%20(website%20code)-blue?style=flat" alt="License: AGPL-3.0 (website code)">
+  </a>
+  <a href="https://github.com/tc39/ecma262" title="ECMAScript language specification source">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&amp;logo=javascript&amp;logoColor=black" alt="JavaScript">
+  </a>
+  <a href="https://github.com/whatwg/html" title="HTML Standard source">
+    <img src="https://img.shields.io/badge/HTML-E34F26?style=flat&amp;logo=html5&amp;logoColor=white" alt="HTML">
+  </a>
+  <a href="https://github.com/w3c/csswg-drafts" title="CSS Working Group specifications source">
+    <img src="https://img.shields.io/badge/CSS-663399?style=flat&amp;logo=css&amp;logoColor=white" alt="CSS">
+  </a>
+</p>
 
 A modern web-based archive system for Danish FP9 (9th grade) examination materials. Access, browse, and view past examinations in an organized and user-friendly interface.
 
@@ -80,7 +101,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 - Website code is licensed under [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.html)
-
-  [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
 - Exam content © Børne- og Undervisningsministeriet
