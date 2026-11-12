@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Smoke test of the site: serve docs/ statically, the way GitHub Pages does, and request
 # both first-party pages. Ministry-owned exam archive content is intentionally outside this check.
 set -euo pipefail
