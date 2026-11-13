@@ -19,6 +19,7 @@
   <a href="https://github.com/w3c/csswg-drafts" title="CSS Working Group specifications source">
     <img src="https://img.shields.io/badge/CSS-663399?style=flat&amp;logo=css&amp;logoColor=white" alt="CSS">
   </a>
+  <a href="https://github.com/edbfi/eksamen/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/edbfi/eksamen/ci.yml?branch=main&amp;event=push&amp;label=CI&amp;style=flat" alt="CI"></a>
 </p>
 
 A modern web-based archive system for Danish FP9 (9th grade) examination materials. Access, browse, and view past examinations in an organized and user-friendly interface.
